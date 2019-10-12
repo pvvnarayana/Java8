@@ -11,8 +11,10 @@ public class OddEvenList {
 		
 		Collections.addAll(list, 4,2,6,7,1,5,3,8,9);
 		
-		Stream.concat(list.stream().sorted().filter(e->e%2!=0),
-		list.stream().sorted().filter(e->e%2==0)).collect(Collectors.toList()).forEach(System.out::print);;
+		Stream.concat(
+				list.stream().filter(e->e%2!=0).sorted(),
+				list.stream().filter(e->e%2==0).sorted()
+				).collect(Collectors.toList()).forEach(System.out::print);
 		
 	}
 }
